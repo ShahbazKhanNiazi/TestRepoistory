@@ -1,0 +1,45 @@
+﻿<h1>Contact Data</h1>
+
+<p>This component demonstrates fetching Contact data from the server.</p>
+
+<p *ngIf="!conList"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/register-contact']">Create New</a>
+</p>
+
+<table class='table' *ngIf="conList">
+    <thead>
+        <tr>
+            <th>ContactId</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Facebook</th>
+            <th>Twitter</th>
+            <th>Linkedin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let con of conList">
+            <td>{{ con.contactId }}</td>
+            <td>{{ con.contactName }}</td>
+            <td>{{ con.address }}</td>
+            <td>{{ con.phoneno }}</td>
+            <td>{{ con.email }}</td>
+            <td>{{ con.age }}</td>
+            <td>{{ con.country }}</td>
+            <td>{{ con.facebook }}</td>
+            <td>{{ con.twitter }}</td>
+            <td>{{ con.linkedin }}</td>
+            <td>
+            <td>
+                <a [routerLink]="['/contact/edit/', con.contactId]">Edit</a> |
+                <a [routerLink]="" (click)="delete(con.contactId)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+    </table>
